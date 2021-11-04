@@ -36,3 +36,4 @@ var users = [1, 2, 3, 5];
 var users2 = ['1', '2', '4'];
 console.log(users);
 console.log(users2);
+//元组
