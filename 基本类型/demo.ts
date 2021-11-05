@@ -16,19 +16,19 @@
 // document.body.innerHTML = greeter(user)
 
 class Student {
-    fullName:string;
-    constructor(public firstName:string,public middleInitial:string,public lastName:string){
-        this.fullName = firstName+" " + middleInitial + " " + lastName
-    }
+  fullName:string;
+  constructor(public firstName:string,public middleInitial:string,public lastName:string){
+    this.fullName = firstName+" " + middleInitial + " " + lastName
+  }
 }
 
 interface Person{
-    firstName:string,
-    lastName:string,
+  firstName:string,
+  lastName:string,
 }
 
 function greeter(person : Person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
+  return "Hello, " + person.firstName + " " + person.lastName;
 }
 
 let user = new Student("zhang","sss","zhao")
@@ -72,21 +72,21 @@ console.log(notSure)
 
 //Never类型
 function error(message : string){
-    throw new Error(message)
+  throw new Error(message)
 }
 //手动抛出错误
 //error("??")
 
 function fail(){
-    return error("something failed")
+  return error("something failed")
 }
 //方法调用中抛出错误
 // fail()
 
 //返回never的函数必须存在无法达到的终点
 function infiniteLoop(): never{
-    while (true){
-    }
+  while (true){
+  }
 }
 // infiniteLoop()
 
