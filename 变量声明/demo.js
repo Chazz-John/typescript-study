@@ -7,7 +7,6 @@ function f(input) {
     var a = 0;
     if (input) {
         var b = a + 1; //能够访问到a
-        alert(b);
         return b;
     }
     // return b//Cannot find name 'b'.
@@ -32,3 +31,29 @@ function f1(_a) {
     console.log(second);
 }
 f1(input);
+function f2(defultValue) {
+    //结构赋值设置默认值.对必须传参的属性设置默认值无意义,默认值不会生效
+    var _a = defultValue.a, a = _a === void 0 ? "www.baidu.com" : _a, _b = defultValue.b, b = _b === void 0 ? 100 : _b;
+    //不对可变参数进行默认赋值的话,不传参数,b则会undefined
+    // let { a, b } = defultValue
+    console.log(a, b);
+}
+//传b的值:2 22
+f2({ a: "2", b: 22 });
+//传b的值:2 undefined
+// f2({a:"2"})
+//函数声明进行结构赋值再设置默认值,可实现多个可变参数动态赋值(好像意义不大-.-)
+// function f3({a="232",b=232}:{a?:string,b?:number}) {
+//   console.log(a,b);
+// }
+// f3({})//232 232
+// f3({a:"23"})//23 232
+// f3({b:23})//23 232
+// f3({a:"23",b:23})//23 23
+//函数声明先设置默认值再进行结构赋值,要么赋值,要么不赋值(也不知道什么场景用-.-)
+function f3(_a) {
+    var _b = _a === void 0 ? { a: "232", b: 0 } : _a, a = _b.a, b = _b.b;
+    console.log(a, b);
+}
+f3(); //
+// f3({a:"23",b:23})//23 23
