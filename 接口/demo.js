@@ -34,7 +34,7 @@ var p1 = { x: 20, y: 20 };
 var a = [1, 2, 3, 4];
 var ro = a;
 function createSquare2(config) {
-    console.log(config);
+    console.log(config); //{colour: 'red', width: 100}
     //设置默认值
     var newSquare = { color: 'withe', area: 100 };
     //根据传入的参数属性值,设置数据
@@ -46,4 +46,25 @@ function createSquare2(config) {
     }
     return newSquare;
 }
+// 当color属性不存在时
+// 使用as interface 类型断言绕过检测
+// 不使用类型断言无法通过参数校验,错误信息: 
+// Argument of type '{ colour: string; width: number; }' is not assignable to parameter of type 'SquareConfig'.
 var mySquare2 = createSquare2({ colour: 'red', width: 100 });
+//定义一个变量,实现这个接口函数,接口的形参名可以接口定义的不同
+var myIn = function (str, subStr) {
+    return str.search(subStr) > -1;
+};
+//实现类类型接口
+var myClass = /** @class */ (function () {
+    function myClass() {
+    }
+    //这里的方法只需要方法名相同即可?参数和返回值都不同,没有错误提示
+    myClass.prototype.getData = function () {
+        return '';
+    };
+    return myClass;
+}());
+var square = {};
+square.color = "blue";
+square.sideLength = 10;
