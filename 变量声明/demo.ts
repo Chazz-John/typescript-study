@@ -38,11 +38,11 @@ f1(input)
 //对象结构赋值.设置缺省值
 //定义一个类型,形参名后加?表示不是必须的属性,即可变参数
 type C = { a: string; b?: number }
-function f2(defultValue: { a: string; b?: number }) {
+function f2(defaultValue: { a: string; b?: number }) {
   //结构赋值设置默认值.对必须传参的属性设置默认值无意义,默认值不会生效
-  let { a="www.baidu.com", b=100 } = defultValue
+  let { a="www.baidu.com", b=100 } = defaultValue
   //不对可变参数进行默认赋值的话,不传参数,b则会undefined
-  // let { a, b } = defultValue
+  // let { a, b } = defaultValue
   console.log(a, b);
 }
 //传b的值:2 22
