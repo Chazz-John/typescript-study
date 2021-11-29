@@ -11,33 +11,32 @@
 //     lastName:"zhao",
 // }
 // document.body.innerHTML = greeter(user)
-var Student = /** @class */ (function () {
-    function Student(firstName, middleInitial, lastName) {
+class Student {
+    constructor(firstName, middleInitial, lastName) {
         this.firstName = firstName;
         this.middleInitial = middleInitial;
         this.lastName = lastName;
         this.fullName = firstName + " " + middleInitial + " " + lastName;
     }
-    return Student;
-}());
+}
 function greeter(person) {
     return "Hello, " + person.firstName + " " + person.lastName;
 }
-var user = new Student("zhang", "sss", "zhao");
+let user = new Student("zhang", "sss", "zhao");
 // document.body.innerHTML = greeter(user)
 //``模板字符串的应用
-var userName = "s";
-userName = "a" + userName;
+let userName = "s";
+userName = `a${userName}`;
 console.log(userName);
 //数组
 //1.类型后加[]
-var users = [1, 2, 3, 5];
+let users = [1, 2, 3, 5];
 //2.数组泛型加类型
-var users2 = ['1', '2', '4'];
+let users2 = ['1', '2', '4'];
 console.log(users);
 console.log(users2);
 //元组[类型名,类型名].赋值安装类型定义顺序
-var x;
+let x;
 x = ["hello", 23];
 console.log(x);
 console.log(x[0].substr(1)); //编译通过
@@ -54,10 +53,10 @@ var Color;
     Color[Color["Green"] = 2] = "Green";
     Color[Color["Blue"] = 3] = "Blue";
 })(Color || (Color = {}));
-var c = Color.Green;
+let c = Color.Green;
 console.log(c);
 //any任意类型
-var notSure = 2;
+let notSure = 2;
 notSure = "notSure";
 notSure = false;
 console.log(notSure);
@@ -80,7 +79,8 @@ function infiniteLoop() {
 // infiniteLoop()
 //类型断言
 // let someValue:any = "this is a string"
-var someValue = 222; // 并不报错?
+let someValue = 222; // 并不报错?
 //如果someValue是string 则获取字符长度
-var strLength = someValue.length;
+let strLength = someValue.length;
 console.log(strLength); //输出:undefined
+//# sourceMappingURL=demo.js.map

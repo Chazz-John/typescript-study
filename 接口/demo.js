@@ -2,20 +2,20 @@
 function printLabel(labelledObj) {
     console.log(labelledObj);
 }
-var myObj = { size: 10, label: "size 10 object" };
+let myObj = { size: 10, label: "size 10 object" };
 printLabel(myObj); //{size: 10, label: 'size 10 object'}
 function printLabel1(labelledObj) {
     console.log(labelledObj);
 }
 // myObj 不一定必须实现LabelledValue接口
-var myObj1 = { size: 10, label: "Size 10 object" };
+let myObj1 = { size: 10, label: "Size 10 object" };
 // 同第一种定义方式
 // 只要传入的对象数据属性包含必要的属性,且类型相同,依然可以通过校验
 printLabel1(myObj1); //{size: 10, label: 'Size 10 object'}
 // 定义一个返回值为对象的函数
 function createSquare(config) {
     //设置默认值
-    var newSquare = { color: 'withe', area: 100 };
+    let newSquare = { color: 'withe', area: 100 };
     //根据传入的参数属性值,设置数据
     if (config.color) {
         newSquare.color = config.color;
@@ -25,18 +25,18 @@ function createSquare(config) {
     }
     return newSquare;
 }
-var mySquare = createSquare({ color: "black" });
+let mySquare = createSquare({ color: "black" });
 console.log(mySquare);
-var p1 = { x: 20, y: 20 };
+let p1 = { x: 20, y: 20 };
 //TS2540: Cannot assign to 'x' because it is a read-only property.
 // p1.x = 1;
 //只读数组
-var a = [1, 2, 3, 4];
-var ro = a;
+let a = [1, 2, 3, 4];
+let ro = a;
 function createSquare2(config) {
     console.log(config); //{colour: 'red', width: 100}
     //设置默认值
-    var newSquare = { color: 'withe', area: 100 };
+    let newSquare = { color: 'withe', area: 100 };
     //根据传入的参数属性值,设置数据
     if (config.color) {
         newSquare.color = config.color;
@@ -50,21 +50,19 @@ function createSquare2(config) {
 // 使用as interface 类型断言绕过检测
 // 不使用类型断言无法通过参数校验,错误信息: 
 // Argument of type '{ colour: string; width: number; }' is not assignable to parameter of type 'SquareConfig'.
-var mySquare2 = createSquare2({ colour: 'red', width: 100 });
+let mySquare2 = createSquare2({ colour: 'red', width: 100 });
 //定义一个变量,实现这个接口函数,接口的形参名可以接口定义的不同
-var myIn = function (str, subStr) {
+let myIn = function (str, subStr) {
     return str.search(subStr) > -1;
 };
 //实现类类型接口
-var myClass = /** @class */ (function () {
-    function myClass() {
-    }
+class myClass {
     //这里的方法只需要方法名相同即可?参数和返回值都不同,没有错误提示
-    myClass.prototype.getData = function () {
+    getData() {
         return '';
-    };
-    return myClass;
-}());
-var square = {};
+    }
+}
+let square = {};
 square.color = "blue";
 square.sideLength = 10;
+//# sourceMappingURL=demo.js.map
