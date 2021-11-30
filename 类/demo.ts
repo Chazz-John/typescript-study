@@ -81,3 +81,23 @@ let dad = new Octopus("Man with the 8 strong legs" );
 //TS2540: Cannot assign to 'name' because it is a read-only property.
 // 尝试赋值给常量或只读变量
 // dad.name = "Man with the 3-piece suit"
+//存取器
+let passcode = 'secret passcode'
+class Employee{
+	private _fullName : string;
+	get fullName(): string {
+		return this._fullName;
+	}
+	set fullName(newName: string) {
+		if (passcode && passcode==='secret passcode') {
+			this._fullName = newName;
+		}else {
+			console.log('error:unauthorized update of employee!')
+		}
+	}
+}
+let employee = new Employee()
+employee.fullName = "Bob Smith"
+if (employee.fullName){
+	console.log(employee.fullName)
+}
